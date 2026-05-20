@@ -1,0 +1,8 @@
+# Neovim / Vim temporäre Dateien ignorieren (sucht in allen Ordnern)
+**/*.swp
+**/*.swo
+.netrwhist
+
+# LazyVim Paketmanager-Caches im config-Ordner
+config/nvim/.lazy.lua
+config/nvim/lazy-lock.json
