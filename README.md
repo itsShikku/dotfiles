@@ -15,6 +15,7 @@ Bevor das Installations-Skript ausgeführt wird, sollten die folgenden Tools auf
 | **Neovim** | Moderner Texteditor (LazyVim Basis) | `sudo apt install -y neovim` |
 | **btop** | Visueller und interaktiver Taskmanager | `sudo apt install -y btop` |
 | **eza** | Moderner, farbiger `ls`-Ersatz | `sudo apt install -y eza` |
+| fzf | Fuzzy Finder für schnelles Suchen | `sudo apt install -y fzf`
 | **Starship** | Extrem schneller & schicker Shell-Prompt | *Siehe unten* |
 
 ### Starship Prompt installieren:

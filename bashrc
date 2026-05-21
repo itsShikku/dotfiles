@@ -116,6 +116,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Aktiviere fzf für die Befehlshistorie (Strg + R)
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# Schnelles Finden und Bearbeiten von Dateien mit Neovim
+alias fv='nvim $(fzf)'
+
 # ==========================================
 # INTELIGENTER PROMPT (Starship)
 # ==========================================
