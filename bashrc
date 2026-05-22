@@ -122,6 +122,12 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 # Schnelles Finden und Bearbeiten von Dateien mit Neovim
 alias fv='nvim $(fzf)'
 
+# Aktiviere fzf key bindings (für CTRL-R)
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+#optionale optische Anpassung
+export FZF_CTRL_R_OPTS="--height 40% --reverse --border"
+
 # ==========================================
 # INTELIGENTER PROMPT (Starship)
 # ==========================================
