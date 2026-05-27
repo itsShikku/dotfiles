@@ -64,7 +64,8 @@ Ich nutze ein in meinen Dotfiles integriertes Tool `cheat`, um schnell auf meine
 ├── cheatsheets/          # Deine neue Wissensdatenbank (Markdown)
 │   ├── git.md
 │   ├── linux.md
-│   └── neovim.md
+│   ├── neovim.md
+│   └── powershell.md
 ├── config/
 │   ├── btop/             # Konfiguration für den Taskmanager
 │   ├── nvim/             # LazyVim & Neovim Einstellungen
