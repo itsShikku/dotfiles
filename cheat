@@ -1,0 +1,44 @@
+#!/bin/bash
+
+CHEAT_DIR="$HOME/dotfiles/cheatsheets"
+
+if [ ! -d "$CHEAT_DIR" ]; then
+  echo "❌ Ordner $CHEAT_DIR nicht gefunden!"
+  exit 1
+fi
+
+# Wir nutzen bat oder batcat für die Farben, Fallback auf cat
+if command -v batcat &>/dev/null; then
+  VIEWER="batcat --style=plain --color=always --language=markdown"
+elif command -v bat &>/dev/null; then
+  VIEWER="bat --style=plain --color=always --language=markdown"
+else
+  VIEWER="cat"
+fi
+
+# ---- MODUS: EDITIEREN ----
+if [ "$1" == "-e" ]; then
+  SELECTION=$(ls "$CHEAT_DIR" | sed 's/\.md$//' | fzf --height 50% --layout=reverse --border \
+    --header="📝 Welchen Spickzettel willst du in Neovim bearbeiten?" \
+    --preview "$VIEWER $CHEAT_DIR/{}.md")
+
+  if [ -n "$SELECTION" ]; then
+    nvim "$CHEAT_DIR/${SELECTION}.md"
+  else
+    echo "Abgebrochen."
+  fi
+  exit 0
+fi
+
+# ---- MODUS: ANZEIGEN (STANDARD) ----
+SELECTION=$(ls "$CHEAT_DIR" | sed 's/\.md$//' | fzf --height 50% --layout=reverse --border \
+  --header="🧠 [Enter] Anzeigen | [Strg+C] Abbrechen" \
+  --preview "$VIEWER $CHEAT_DIR/{}.md")
+
+if [ -n "$SELECTION" ]; then
+  echo -e "\n=== 📖 $SELECTION ===\n"
+  $VIEWER "$CHEAT_DIR/${SELECTION}.md"
+  echo ""
+else
+  echo "Abgebrochen."
+fi

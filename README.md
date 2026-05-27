@@ -49,13 +49,28 @@ Wenn die oben genannte Software installiert ist, kann das Setup mit folgenden Sc
 
 ---
 
+## 🧠 Cheatsheet-System
+Ich nutze ein in meinen Dotfiles integriertes Tool `cheat`, um schnell auf meine Notizen zuzugreifen.
+
+- **Verwendung:** `cheat` (öffnet die interaktive Suche)
+- **Bearbeiten:** `cheat -e` (öffnet das ausgewählte Sheet in Neovim)
+- **Daten:** Alle Spickzettel liegen im Ordner `~/dotfiles/cheatsheets/`.
+
+--- 
+
 ## 📂 Struktur des Repositories
 
 ```text
+├── cheatsheets/          # Deine neue Wissensdatenbank (Markdown)
+│   ├── git.md
+│   ├── linux.md
+│   └── neovim.md
 ├── config/
-│   ├── btop/          # Konfiguration für den Taskmanager
-│   ├── nvim/          # LazyVim & Neovim Einstellungen
-│   └── starship.toml  # Design des Shell-Prompts
-├── bashrc             # Erweiterungen für Aliase und Terminal-Verhalten
-└── install.sh         # Dynamisches Bash-Skript für die Symlink-Verknüpfung
+│   ├── btop/             # Konfiguration für den Taskmanager
+│   ├── nvim/             # LazyVim & Neovim Einstellungen
+│   └── starship.toml     # Design des Shell-Prompts
+├── bashrc                # Erweiterungen für Aliase und Terminal-Verhalten
+├── cheat                 # Dein neues interaktives Terminal-Tool
+├── install.sh            # Dynamisches Bash-Skript für die Symlink-Verknüpfung
+└── README.md             # Dokumentation inkl. Anleitung zum cheat-Tool
 ```

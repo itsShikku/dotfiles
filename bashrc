@@ -147,3 +147,5 @@ alias la='eza --icons=always --color=always --group-directories-first -a'
 alias update-all='~/dotfiles/update.sh'
 
 fastfetch
+alias cheat='~/dotfiles/cheat'
+alias bat='batcat'
