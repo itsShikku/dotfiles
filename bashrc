@@ -1,4 +1,15 @@
 # ==========================================
+# LOKALE KONFIGURATION (NICHT IM REPO)
+# ==========================================
+if [ -f "$HOME/.proxy_settings" ]; then
+  source "$HOME/.proxy_settings"
+fi
+
+if [ -f "$HOME/.bash_aliases" ]; then
+  source "$HOME/.bash_aliases"
+fi
+
+# ==========================================
 # HISTORY OPTIMIERUNG
 # ==========================================
 HISTCONTROL=ignoreboth:erasedups
