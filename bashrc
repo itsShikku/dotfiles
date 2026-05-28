@@ -36,7 +36,6 @@ alias ll='eza --icons=always --color=always --group-directories-first -lah --git
 alias la='eza --icons=always --color=always --group-directories-first -a'
 
 # Tools & Skripte
-alias cheat='~/dotfiles/cheat'
 alias fv='nvim $(fzf)'
 alias bat='batcat'
 alias update-all='~/dotfiles/update.sh'
@@ -44,6 +43,28 @@ alias update-all='~/dotfiles/update.sh'
 # ==========================================
 # INITIALISIERUNG
 # ==========================================
+
+# Die Funktion selbst
+_cheat_func() {
+  local CHEAT_DIR="$HOME/dotfiles/cheatsheets"
+  # Auswahl treffen
+  local SELECTION=$(grep -h ' :: ' "$CHEAT_DIR"/*.md | fzf --height 50% --header="Wähle Befehl")
+
+  if [ -n "$SELECTION" ]; then
+    # Extrahiere den Befehl: Alles vor dem ersten " :: "
+    # Wir entfernen auch den Pfad, falls grep -h ihn anzeigt
+    local CMD=$(echo "$SELECTION" | sed 's/.*:git/git/' | awk -F ' :: ' '{print $1}')
+
+    # Das ist der entscheidende Befehl, um Text in die Eingabezeile zu "schreiben"
+    READLINE_LINE="$CMD"
+    READLINE_POINT=${#READLINE_LINE}
+  fi
+}
+
+# Funktion exportieren und an einen Shortcut binden
+# Strg+o wird zum "Einfüger"
+bind -x '"\C-o": _cheat_func'
+
 # Starship Prompt (sollte immer am Ende stehen)
 eval "$(starship init bash)"
 

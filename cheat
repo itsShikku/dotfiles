@@ -42,3 +42,21 @@ if [ -n "$SELECTION" ]; then
 else
   echo "Abgebrochen."
 fi
+
+# ---- MODUS: BEFEHL AUSWÄHLEN & EINFÜGEN ----
+if [ "$1" == "-p" ]; then # "-p" für "paste"
+  # 1. Datei auswählen
+  FILE=$(ls "$CHEAT_DIR" | fzf --height 40% --header="Wähle eine Kategorie")
+
+  if [ -n "$FILE" ]; then
+    # 2. Befehl aus der gewählten Datei auswählen
+    # Geht davon aus, dass die Zeile mit "Befehl - Beschreibung" aufgebaut ist
+    local CMD=$(echo "$SELECTION" | awk -F ' :: ' '{print $1}' | sed 's/.*://')
+    if [ -n "$CMD" ]; then
+      # Dies fügt den Befehl in die aktuelle Bash-Zeile ein
+      READLINE_LINE="$CMD"
+      READLINE_POINT=${#READLINE_LINE}
+    fi
+  fi
+  exit 0
+fi

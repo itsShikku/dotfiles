@@ -61,11 +61,9 @@ Ich nutze ein in meinen Dotfiles integriertes Tool `cheat`, um schnell auf meine
 ## 📂 Struktur des Repositories
 
 ```text
-├── cheatsheets/          # Deine neue Wissensdatenbank (Markdown)
+├── cheatsheets/          # Gemütlicher Befehlsfinder mit cheat und STRG+o zum Einfügen
 │   ├── git.md
-│   ├── linux.md
-│   ├── neovim.md
-│   └── powershell.md
+│   └── linux.md
 ├── config/
 │   ├── btop/             # Konfiguration für den Taskmanager
 │   ├── nvim/             # LazyVim & Neovim Einstellungen
