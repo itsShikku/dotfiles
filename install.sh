@@ -24,7 +24,7 @@ link_file() {
       return
     fi
     echo -e "${YELLOW}Hinweis: $target existiert bereits. Erstelle Backup...${NC}"
-    mv "$target" "${target}.bak"
+    mv "$target" "${target}.bak.$(date +%Y%m%d_%H%M%S)"
   fi
 
   # Den eigentlichen Symlink erstellen
@@ -44,7 +44,7 @@ echo -e "\n${BLUE}[2/2] Verknüpfe Anwendungen aus config/...${NC}"
 for item in "$DOTFILES_DIR/config"/*; do
   # Falls der Ordner komplett leer sein sollte, Schleife abbrechen
   [ -e "$item" ] || continue
-  
+
   base_name=$(basename "$item")
   link_file "$item" "$CONFIG_DIR/$base_name"
 done
