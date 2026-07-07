@@ -11,3 +11,4 @@ git stash :: Legt aktuelle Änderungen kurz beiseite
 git stash pop :: Holt beiseitegelegte Änderungen zurück
 git remote -v :: Zeigt den verbundenen Remote-Server an
 git checkout . :: ACHTUNG: Verwirft alle lokalen Änderungen im Verzeichnis
+git pull :: Lädt die die Einstellungen von GitHub herunter auf das lokale Repo
