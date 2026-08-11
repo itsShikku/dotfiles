@@ -1,0 +1,2 @@
+# Setzt das Timeout auf 100 Millisekunden (Standard ist 30)
+scan_timeout = 100
